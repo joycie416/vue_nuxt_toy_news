@@ -28,4 +28,11 @@ import { AppBanner } from "~/components/common";
 import { SkeletonMainContent, SkeletonSubContent } from "~/components/skeleton";
 import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
+import { useStore } from "~/store";
+
+const store = useStore();
+
+onMounted(() => {
+  store.getNews();
+});
 </script>
