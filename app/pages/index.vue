@@ -3,6 +3,7 @@
     <AppBanner />
 
     <!-- 메인 뉴스 -->
+    <MainContent :data="store.mainArticle" />
     <SkeletonMainContent />
 
     <Separator label="Or" class="my-6" />
@@ -24,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { AppBanner } from "~/components/common";
+import { AppBanner, MainContent } from "~/components/common";
 import { SkeletonMainContent, SkeletonSubContent } from "~/components/skeleton";
 import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
