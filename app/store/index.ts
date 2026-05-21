@@ -5,7 +5,7 @@ export const useStore = defineStore("news", () => {
   // state
   const searchValue = ref<string>("korea");
   const mainArticle = ref<Article | null>(null);
-  const subArticles = ref<Article[]>([]);
+  const subArticles = ref<Article[] | null>(null);
   const noDataMessage = ref<string | null>(null);
 
   // action

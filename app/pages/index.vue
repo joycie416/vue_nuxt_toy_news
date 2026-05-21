@@ -3,8 +3,8 @@
     <AppBanner />
 
     <!-- 메인 뉴스 -->
-    <MainContent :data="store.mainArticle" />
-    <SkeletonMainContent />
+    <MainContent v-if="store.mainArticle" :data="store.mainArticle" />
+    <SkeletonMainContent v-else />
 
     <Separator label="Or" class="my-6" />
 
@@ -16,10 +16,15 @@
         </h4>
         <Button class="bg-red-500 hover:bg-red-600">See all</Button>
       </div>
-      <div class="w-full grid grid-cols-4 gap-y-20 gap-x-6">
+      <div
+        v-if="!store.subArticles"
+        class="w-full grid grid-cols-4 gap-y-20 gap-x-6"
+      >
+        <SkeletonSubContent />
+        <SkeletonSubContent />
+      </div>
+      <div v-else class="w-full grid grid-cols-4 gap-y-20 gap-x-6">
         <SubContent v-for="article in store.subArticles" :data="article" />
-        <SkeletonSubContent />
-        <SkeletonSubContent />
       </div>
     </div>
   </div>
