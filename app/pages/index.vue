@@ -17,6 +17,7 @@
         <Button class="bg-red-500 hover:bg-red-600">See all</Button>
       </div>
       <div class="w-full grid grid-cols-4 gap-y-20 gap-x-6">
+        <SubContent v-for="article in store.subArticles" :data="article" />
         <SkeletonSubContent />
         <SkeletonSubContent />
       </div>
@@ -25,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { AppBanner, MainContent } from "~/components/common";
+import { AppBanner, MainContent, SubContent } from "~/components/common";
 import { SkeletonMainContent, SkeletonSubContent } from "~/components/skeleton";
 import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
